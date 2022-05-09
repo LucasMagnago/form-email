@@ -58,7 +58,7 @@ function verificarVazio(){
 function verificarCPF(){
     let c = String(cpf.value);
 
-    if(c.length != 11 || c.includes(".") || !c.includes(",")){
+    if(c.length != 11 || c.includes(".") || c.includes(",")){
         textoErro.innerHTML = "CPF inválido";
         erro.classList.remove("erro-hidden");
         erro.classList.add("erro");
