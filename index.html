@@ -10,9 +10,9 @@
     <title>E-mail Institucional</title>
 </head>
 <body>
-    <div id="container">
+    <div class="container" id="tela-form">
         <div id="imagem">
-            <img src="./gte.png" style="width: 250px">
+            <img id="logo" src="./gte.png">
         </div>
         <div id="form">
             <h1 id="titulo">E-mail institucional</h1>
@@ -29,9 +29,15 @@
                 <label style="margin-bottom: 10px">Matrícula </label>
                 <input type="number" id="matricula" name="matricula" placeholder="Digite aqui a sua matrícula">
             </div>
-            
+            <div class="erro-hidden">
+                <p id="texto-erro">erro qualquer</p>
+            </div>
             <button type="submit" id="submit" value="submit">Enviar</button>
         </div>
+    </div>
+    <div class="container" id="tela-enviado">
+        <img src="check.png" style="width:180px; margin-right: 50px;">
+        <p>Formulário enviado com sucesso!</p>
     </div>
     
     <!-- Configurações Firebase -->

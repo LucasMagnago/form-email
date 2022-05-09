@@ -14,76 +14,86 @@ const sedu = "SEDU";
 
 let nome = document.getElementById("nome");
 let cpf = document.getElementById("cpf");
-let matricula = document.getElementById("matricula")
+let matricula = document.getElementById("matricula");
 let botao = document.getElementById("submit");
-
+let telaForm = document.getElementById("tela-form");
+let telaEnviado = document.getElementById("tela-enviado");
+let erro = document.getElementsByClassName("erro-hidden")[0];
+let textoErro = document.getElementById("texto-erro");
 
 botao.addEventListener('click', function(e){
-    if(!verificarVazio() && verificarNome() && verificarCPF() && verificarMatricula() && !jaCadastrado()){
-        // salvarBanco();
+    if(!verificarVazio() && verificarNome() && verificarCPF() && verificarMatricula()){
+        salvarBanco();
+        telaForm.style.display = "none";
+        telaEnviado.style.display = "flex";
     }
 })
 
-async function espera(){
-    let cadastro = await db.collection(sedu).where("CPF", "==", "16721298775").get()
-    .then((snapshot) => {
-        snapshot.forEach((doc) => {
-            return doc.data();
-        })
-})
+// async function getCadastros(db) {
+//     const cadastros = db.collection(sedu).get().then((doc)=>{
+//         forEach(doc)
+//     });
+//     const cadSnapshot = await cadastros;
+//     return cadSnapshot;
+// }
+
+// let lista = getCadastros(db);
+
+// console.log(lista);
+
+function verificarVazio(){
+    let n = nome.value;
+    let c= String(cpf.value);
+
+    if(n == '' || c == ''){
+        textoErro.innerHTML = "Os campos não podem ficar vazios";
+        erro.classList.remove("erro-hidden");
+        erro.classList.add("erro");
+        return true;
+    }
+    else{
+        return false;
+    }
 }
+function verificarCPF(){
+    let c = String(cpf.value);
 
-let esperar = espera();
+    if(c.length != 11){
+        textoErro.innerHTML = "CPF inválido";
+        erro.classList.remove("erro-hidden");
+        erro.classList.add("erro");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+function verificarNome(){
+    let n = nome.value;
 
-console.log(esperar);
+    if(n.length < 7 || !n.includes(" ")){
+        textoErro.innerHTML = "Nome inválido";
+        erro.classList.remove("erro-hidden");
+        erro.classList.add("erro");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+function verificarMatricula(){
+    let m = matricula.value;
 
-// function verificarVazio(){
-//     let n = nome.value;
-//     let c= String(cpf.value);
-
-//     if(n == '' || c == ''){
-//         alert("Os campos não podem ficar vazios");
-//         return true;
-//     }
-//     else{
-//         return false;
-//     }
-// }
-// function verificarCPF(){
-//     let c = String(cpf.value);
-
-//     if(c.length != 11){
-//         alert("CPF inválido");
-
-//         return false;
-//     }
-//     else{
-//         return true;
-//     }
-// }
-// function verificarNome(){
-//     let n = nome.value;
-
-//     if(n.length < 7 || !n.includes(" ")){
-//         alert("Nome inválido");
-
-//         return false;
-//     }
-//     else{
-//         return true;
-//     }
-// }
-// function verificarMatricula(){
-//     let m = matricula.value;
-
-//     if(String(m).length < 3){
-//         alert("Matrícula inválida")
-//         return false;
-//     }
-//     else{
-//         return true;
-//     }
-// }
+    if(String(m).length < 3){
+        textoErro.innerHTML = "Matrícula inválida";
+        erro.classList.remove("erro-hidden");
+        erro.classList.add("erro");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
 // async function jaCadastrado(){
 //     let c = parseInt(cpf.value);
 
@@ -114,14 +124,15 @@ console.log(esperar);
 //         return false;
 //     }
 // }
-// function salvarBanco(){
-//     let n = String(nome.value);
-//     let c = parseInt(cpf.value);
-//     let m = parseInt(matricula.value);
+function salvarBanco(){
+    let n = String(nome.value);
+    let c = parseInt(cpf.value);
+    let m = parseInt(matricula.value);
 
-//     db.collection(sedu).doc(String(c)).set({
-//         Nome: n,
-//         CPF: c,
-//         Matricula: m
-//     }).then(()=>console.log("Alterações salvas no banco")).catch(err=>console.log(err));
-// }
+    db.collection(sedu).doc(String(c)).set({
+        Nome: n,
+        CPF: c,
+        Matricula: m
+    }).then(()=>console.log("Alterações salvas no banco")).catch(err=>console.log(err));
+
+}

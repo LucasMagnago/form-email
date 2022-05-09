@@ -18,8 +18,9 @@ body{
     background-color: var(--var--bgColorHeader);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-#container{
+.container{
     width: 60%;
+    max-width: 60%;
     height: 70%;
     display: flex;
     flex-direction: row;
@@ -28,16 +29,21 @@ body{
 }
 #imagem{
     width: 50%;
+    max-width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
 }
+#logo{
+    width: 250px;
+}
 #form{
     display: flex;
     flex-direction: column;
     width: 50%;
+    max-width: 50%;
     height: 100%;
     padding: 35px;
     box-sizing: border-box;
@@ -63,8 +69,19 @@ body{
     font-size: 0.9em;
     margin-top: 25px;
 }
+.erro{
+    font-size: 0.8em;
+    color: red;
+    margin-top: 25px;
+}
+.erro-hidden{
+    font-size: 0.8em;
+    color: red;
+    margin-top: 25px;
+    display: none;
+}
 input{
-    width: 80%;
+    max-width: 80%;
     height: 35px;
     padding: 10px; 
     box-sizing: border-box;
@@ -72,7 +89,7 @@ input{
 button{
     border: none;
     background: none;
-    width: 100px;
+    max-width: 100px;
     height: 40px;
     margin-top: 35px;
     border-radius: 10px;
@@ -84,4 +101,30 @@ button:hover{
     background-color: white;
     border: 0.5px solid black;
     color: black;
+}
+#tela-enviado{
+    background-color: white;
+    display: none;
+    font-size: 2.5em;
+}
+
+@media (max-width: 700px){
+    body{
+        width: 100%;
+        height: 100%;
+        font-size: 6px;
+    }
+    .container{
+        flex-direction: column;
+        width: 600px;
+    }
+    #imagem{
+        width: 100%;
+    }
+    #logo{
+        width: 25px;
+    }
+    input{
+        height: 5px;
+    }
 }
