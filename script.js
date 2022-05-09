@@ -84,7 +84,7 @@ function verificarNome(){
 function verificarMatricula(){
     let m = matricula.value;
 
-    if(String(m).length < 3){
+    if(String(m).length < 3 || c.includes(".") || c.includes(",")){
         textoErro.innerHTML = "Matrícula inválida";
         erro.classList.remove("erro-hidden");
         erro.classList.add("erro");
