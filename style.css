@@ -1,0 +1,87 @@
+:root{
+    --var--bgColorHeader: #14213d;
+    --var--bgColorNav: #013a63;
+    --var--bgColorGeral: #F2F3F4;
+    --var--bgColorCard: #FFFFFF;
+    --var--textColorCard: #0F1111;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--var--bgColorHeader);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#container{
+    width: 60%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#imagem{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+#form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    padding: 35px;
+    box-sizing: border-box;
+    background-color: white;
+    margin-left: 10px;
+}
+#titulo{
+    font-size: 2em;
+}
+#descricao{
+    font-size: 1em;
+    margin-top: 25px;
+}
+#form-nome{
+    font-size: 0.9em;
+    margin-top: 25px;
+}
+#form-cpf{
+    font-size: 0.9em;
+    margin-top: 25px;
+}
+#form-matricula{
+    font-size: 0.9em;
+    margin-top: 25px;
+}
+input{
+    width: 80%;
+    height: 35px;
+    padding: 10px; 
+    box-sizing: border-box;
+}
+button{
+    border: none;
+    background: none;
+    width: 100px;
+    height: 40px;
+    margin-top: 35px;
+    border-radius: 10px;
+    box-shadow: 2.5px 2.5px rgba(0, 0, 0, 0.247);
+    background-color: var(--var--bgColorNav);
+    color:white;
+}
+button:hover{
+    background-color: white;
+    border: 0.5px solid black;
+    color: black;
+}
