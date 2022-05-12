@@ -4,6 +4,7 @@
     --var--bgColorGeral: #F2F3F4;
     --var--bgColorCard: #FFFFFF;
     --var--textColorCard: #0F1111;
+    --var--margem-top: 20px;
 }
 *{
     margin: 0px;
@@ -37,7 +38,7 @@ body{
     background-color: white;
 }
 #logo{
-    width: 250px;
+    max-width: 250px;
 }
 #form{
     display: flex;
@@ -50,41 +51,60 @@ body{
     background-color: white;
     margin-left: 10px;
 }
+/* CSS do formulário */
 #titulo{
     font-size: 2em;
 }
 #descricao{
     font-size: 1em;
-    margin-top: 25px;
+    margin-top: var(--var--margem-top);
 }
-#form-nome{
+#form div{
+    display: flex; 
+    flex-direction: column;
     font-size: 0.9em;
-    margin-top: 25px;
+    margin-top: var(--var--margem-top);
 }
-#form-cpf{
-    font-size: 0.9em;
-    margin-top: 25px;
-}
-#form-matricula{
-    font-size: 0.9em;
-    margin-top: 25px;
+#form .form-matricula2-hidden{
+    display: none;
 }
 .erro{
     font-size: 0.8em;
     color: red;
-    margin-top: 25px;
+    margin-top: var(--var--margem-top);
 }
-.erro-hidden{
+#form .erro-hidden{
+    display: none;
     font-size: 0.8em;
     color: red;
-    margin-top: 25px;
-    display: none;
+    margin-top: var(--var--margem-top);
 }
 input{
-    max-width: 80%;
+    flex-grow: 0;
+    flex-basis: 1;
     height: 35px;
-    padding: 10px; 
+    padding: 5px; 
     box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    color: black
+}
+input:focus{
+    outline: none;
+}
+.input-erro{
+    border-bottom: 1px solid red;
+}
+select{
+    text-align: center;
+    flex-grow: 0;
+    flex-basis: 1;
+    max-width: 50px;
+    height: 35px;
+    padding: 5px; 
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 button{
     border: none;
@@ -98,9 +118,12 @@ button{
     color:white;
 }
 button:hover{
-    background-color: white;
-    border: 0.5px solid black;
-    color: black;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.174);
+    transform: scale(1.15);
+}
+button:active{
+    background-color: #0a6dab;
+    box-shadow: 2.5px 2.5px rgba(0, 0, 0, 0.247); 
 }
 #tela-enviado{
     background-color: white;
@@ -109,7 +132,7 @@ button:hover{
 }
 
 @media (max-width: 700px){
-    body{
+    /* body{
         width: 100%;
         height: 100%;
         font-size: 6px;
@@ -126,5 +149,10 @@ button:hover{
     }
     input{
         height: 5px;
-    }
+    } */
+}
+
+/*Removendo arrows do input number*/
+input::-webkit-inner-spin-button {
+    display: none;
 }

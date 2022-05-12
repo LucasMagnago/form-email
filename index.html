@@ -17,26 +17,37 @@
         <div id="form">
             <h1 id="titulo">E-mail institucional</h1>
             <p id="descricao">Insira os seus dados para solicitar a criação de um e-mail institucional.</p>
-            <div id="form-nome" style="display:flex; flex-direction:column">
-                <label style="margin-bottom: 10px">Nome Completo </label>
+            <div id="form-nome">
+                <label style="margin-bottom: 5px">Nome Completo </label>
                 <input type="text" id="nome" name="nome" placeholder="Digite aqui o seu nome" >
             </div>
-            <div id="form-cpf" style="display:flex; flex-direction:column">
-                <label style="margin-bottom: 10px">CPF </label>
+            <div id="form-cpf">
+                <label style="margin-bottom: 5px">CPF </label>
                 <input type="number" id="cpf" name="cpf" placeholder="Digite aqui o seu CPF">
             </div>
-            <div id="form-matricula" style="display:flex; flex-direction:column">
-                <label style="margin-bottom: 10px">Matrícula </label>
-                <input type="number" id="matricula" name="matricula" placeholder="Digite aqui a sua matrícula">
+            <div id="form-qtd-matricula">
+                <label style="margin-bottom: 5px">Quantas matrículas você tem? </label>
+                <select name="qtd-matricula" id="qtd-matricula">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                </select>
             </div>
-            <div class="erro-hidden">
-                <p id="texto-erro">erro qualquer</p>
+            <div id="form-matricula1">
+                <label style="margin-bottom: 5px">Matrícula </label>
+                <input type="number" id="matricula1" name="matricula" placeholder="Digite aqui a sua matrícula">
+            </div>
+            <div id="form-matricula2" class="form-matricula2-hidden">
+                <label style="margin-bottom: 5px">Matrícula 2</label>
+                <input type="number" id="matricula2" name="matricula" placeholder="Digite aqui a sua segunda matrícula">
+            </div>
+            <div class="erro-hidden"  >
+                <p id="texto-erro">Erro</p>
             </div>
             <button type="submit" id="submit" value="submit">Enviar</button>
         </div>
     </div>
     <div class="container" id="tela-enviado">
-        <img src="check.png" style="width:180px; margin-right: 50px;">
+        <img src="check.png" style="width:120px; margin-right: 50px;">
         <p>Formulário enviado com sucesso!</p>
     </div>
     
