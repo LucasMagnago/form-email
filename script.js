@@ -179,6 +179,7 @@ function salvarBanco(){
                     console.log("Alterações salvas no banco");
                     telaForm.style.display = "none";
                     telaEnviado.style.display = "flex";
+                    telaEnviado.style.flexDirection = "row";
                     return true;
                 }).catch(err=>console.log(err));
             }
@@ -206,6 +207,7 @@ function salvarBanco(){
                     console.log("Alterações salvas no banco");
                     telaForm.style.display = "none";
                     telaEnviado.style.display = "flex";
+                    telaEnviado.style.flexDirection = "row";
                     return true;
                 }).catch(err=>console.log(err));
             }

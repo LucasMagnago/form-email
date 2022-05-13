@@ -163,8 +163,6 @@ button:active{
         display: none;
     }
     #tela-enviado{
-        display: flex;
-        flex-direction: row;
         width: 100%;
         font-size: 2em;
     }
@@ -214,8 +212,6 @@ button:active{
         padding: 15px;
     }
     #tela-enviado{
-        display: flex;
-        flex-direction: row;
         justify-content: center;
         align-items: center;
         width: 100%;
