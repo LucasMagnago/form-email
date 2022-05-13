@@ -39,11 +39,7 @@ function setAlturaDiv(){
 
 botao.addEventListener('click', function(e){
     if(!verificarVazio() && verificarNome() && verificarCPF() && verificaData() && verificarMatricula()){
-        
-        if(salvarBanco()){
-            telaForm.style.display = "none";
-            telaEnviado.style.display = "flex";
-        }       
+        salvarBanco();
     }
 })
 
@@ -181,6 +177,8 @@ function salvarBanco(){
                     Horario: Date.now(),
                 }).then(()=>{
                     console.log("Alterações salvas no banco");
+                    telaForm.style.display = "none";
+                    telaEnviado.style.display = "flex";
                     return true;
                 }).catch(err=>console.log(err));
             }
@@ -206,7 +204,9 @@ function salvarBanco(){
                     Horario: Date.now(),
                 }).then(()=>{
                     console.log("Alterações salvas no banco");
-                    return true
+                    telaForm.style.display = "none";
+                    telaEnviado.style.display = "flex";
+                    return true;
                 }).catch(err=>console.log(err));
             }
         }));

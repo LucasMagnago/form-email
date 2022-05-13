@@ -137,9 +137,10 @@ button:active{
     box-shadow: 2.5px 2.5px rgba(0, 0, 0, 0.247); 
 }
 #tela-enviado{
-    background-color: white;
+    /* background-color: white; */
     display: none;
     font-size: 2.5em;
+    color:white;
 }
 
 @media (max-width: 1300px){
