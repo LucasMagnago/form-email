@@ -9,10 +9,11 @@
     
     <title>E-mail Institucional</title>
 </head>
-<body>
+<body onload="setAlturaDiv()">
     <div class="container" id="tela-form">
         <div id="imagem">
-            <img id="logo" src="./gte.png">
+            <img id="logo" src="./gte.png">      
+            <p>Gerência de Tecnologias Educacionais</p>
         </div>
         <div id="form">
             <h1 id="titulo">E-mail institucional</h1>
@@ -24,6 +25,10 @@
             <div id="form-cpf">
                 <label style="margin-bottom: 5px">CPF </label>
                 <input type="number" id="cpf" name="cpf" placeholder="Digite aqui o seu CPF">
+            </div>
+            <div id="form-data">
+                <label style="margin-bottom: 5px">Data de nascimento </label>
+                <input type="date" id="data-nascimento" name="data-nascimento">
             </div>
             <div id="form-qtd-matricula">
                 <label style="margin-bottom: 5px">Quantas matrículas você tem? </label>

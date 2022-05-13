@@ -12,8 +12,10 @@ firebase.initializeApp(firebaseConfig)
 const db = firebase.firestore();
 const sedu = "SEDU";
 
+let body = document.getElementsByTagName("body")[0];
 let nome = document.getElementById("nome");
 let cpf = document.getElementById("cpf");
+let data = document.getElementById("data-nascimento");
 let qtd_matricula = document.getElementById("qtd-matricula");
 let matricula1 = document.getElementById("matricula1");
 let matricula2 = document.getElementById("matricula2");
@@ -24,9 +26,19 @@ let telaEnviado = document.getElementById("tela-enviado");
 let erro = document.getElementsByClassName("erro-hidden")[0];
 let textoErro = document.getElementById("texto-erro");
 
+let imagem = document.getElementById("imagem");
+let form = document.getElementById("form");
+
+setInterval(()=>{
+    setAlturaDiv();
+}, 500);
+
+function setAlturaDiv(){
+    imagem.style.height = form.clientHeight + "px";
+}
 
 botao.addEventListener('click', function(e){
-    if(!verificarVazio() && verificarNome() && verificarCPF() && verificarMatricula()){
+    if(!verificarVazio() && verificarNome() && verificarCPF() && verificaData() && verificarMatricula()){
         
         if(salvarBanco()){
             telaForm.style.display = "none";
@@ -38,9 +50,11 @@ botao.addEventListener('click', function(e){
 qtd_matricula.addEventListener('change', function(e){
     if(qtd_matricula.value == 2){
         form_matricula2.classList.toggle('form-matricula2-hidden');
+        setAlturaDiv();
     }
     else{
         form_matricula2.classList.toggle('form-matricula2-hidden');
+        setAlturaDiv();
     }
 })
 
@@ -84,6 +98,17 @@ function verificarCPF(){
         erro.classList.remove("erro");
         erro.classList.add("erro-hidden");
         return true;
+    }
+}
+function verificaData(){
+    if(data.value){
+        return true;
+    }
+    else{
+        textoErro.innerHTML = "Data de nascimento inválida";
+        erro.classList.remove("erro-hidden");
+        erro.classList.add("erro");
+        return false;
     }
 }
 function verificarNome(){
@@ -131,6 +156,7 @@ function salvarBanco(){
     let n = String(nome.value);
     let c = parseInt(cpf.value);
     let m1 = parseInt(matricula1.value);
+    let data_nasc = data.value;
 
     if(qtd_matricula.value == 2){
 
@@ -149,8 +175,10 @@ function salvarBanco(){
                 userRef.set({
                     Nome: n,
                     CPF: c,
-                    Matricula: m1,
-                    Matricula2: m2
+                    DataNascimento: data_nasc,
+                    Matricula1: m1,
+                    Matricula2: m2,
+                    Horario: Date.now(),
                 }).then(()=>{
                     console.log("Alterações salvas no banco");
                     return true;
@@ -158,8 +186,8 @@ function salvarBanco(){
             }
         }));
     }
-
-    let userRef = db.collection(sedu).doc(String(cpf.value));
+    else{
+        let userRef = db.collection(sedu).doc(String(cpf.value));
 
         userRef.get().then((docSnapShot => {
             if(docSnapShot.exists){
@@ -173,26 +201,14 @@ function salvarBanco(){
                 userRef.set({
                     Nome: n,
                     CPF: c,
-                    Matricula: m1,
+                    DataNascimento: data_nasc,
+                    Matricula1: m1,
+                    Horario: Date.now(),
                 }).then(()=>{
                     console.log("Alterações salvas no banco");
                     return true
                 }).catch(err=>console.log(err));
             }
         }));
+        }
 }
-
-// async function jaCadastrado(){
-
-//     let c = cpf.value;
-
-//     let snapShot = await db.collection(sedu).doc(c).get().then(query => query.size);
-
-//     console.log(snapShot);
-
-//     let pessoaCadastrada = snapShot.size ? true : false;
-
-//     console.log(pessoaCadastrada);
-
-//     return pessoaCadastrada;
-// }
