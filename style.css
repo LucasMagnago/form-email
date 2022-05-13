@@ -179,12 +179,15 @@ button:active{
 }
 @media (max-width: 460px){
     body{
-        height: 120%;
+        height: 115%;
+        align-items: flex-start;
+        margin: 5% 0%;
     }
     .container{
         margin-top: 0px;
         width: 90%;
         max-width: 90%;
+
     }
     .form{
         padding: 15px;
