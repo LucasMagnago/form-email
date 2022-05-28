@@ -93,7 +93,10 @@ function criaTd(data){
     const td = document.createElement('td');
 
     //Verificando se a m2 é 0
-    if(data == 0) return td;
+    if(data == 0){
+        td.textContent = "-";
+        return td;
+    };
 
     td.textContent = data;
 

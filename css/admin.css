@@ -31,6 +31,7 @@ header{
     align-items: center;
     background-color: var(--var--bgColorHeader);
     color: white;
+    box-shadow: 1px 2.5px 5px var(--var--bgColorHeader);
 }
 /* #bg-round{
     width: 125px;
@@ -114,6 +115,12 @@ table{
     width: 100%;
     border-spacing: 5px;
     border-collapse: collapse;
+}
+caption{
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 tr{
     text-align: left;
