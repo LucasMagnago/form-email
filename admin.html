@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="./css/admin.css" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+    <section id="login-page">
+        <div id="formulario">
+            <h1>Login</h1>
+            <form id="form-container">
+                <input type="text" id="input-login" name="input-login" placeholder="Usuário">
+                <input type="password" id="input-senha" name="input-senha" placeholder="Senha">
+                <button type="submit" id="botao">Entrar</button>
+            </form>
+        </div>  
+    </section>
+    <section id="adm-page">
+        <header>
+            <a href="./index.html" style="text-decoration: none; color: white">
+                <h1 style="margin-left: 2rem;">E-mail institucional</h1>
+            </a>
+        </header>
+        <main>
+            <table class="tb">
+                <!-- <caption>Formulários</caption> -->
+                <tr>
+                    <th class="tb-data">Data</th>
+                    <th class="tb-nome">Nome</th>
+                    <th class="tb-cpf">CPF</th>
+                    <th class="tb-">Data de nascimento</th>
+                    <th>Matrícula 1</th>
+                    <th>Matrícula 2</th>
+                    <th>E-mail</th>
+                </tr>
+            </table>
+        </main>
+    </section>
+
+    <!-- Configurações Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script src="./script/admin.js"></script>
+</body>
+</html>

@@ -5,14 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link href="style.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
     
     <title>E-mail Institucional</title>
 </head>
 <body onload="setAlturaDiv()">
     <div class="container" id="tela-form">
         <div id="imagem">
-            <img id="logo" src="./gte.png">      
+            <a href="./admin.html">
+                <img id="logo" src="./assets/gte.png"> 
+            </a>
+                 
             <p>Gerência de Tecnologias Educacionais</p>
         </div>
         <div id="form">
@@ -29,6 +32,10 @@
             <div id="form-data">
                 <label style="margin-bottom: 5px">Data de nascimento </label>
                 <input type="date" id="data-nascimento" name="data-nascimento">
+            </div>
+            <div id="form-email">
+                <label style="margin-bottom: 5px">E-mail </label>
+                <input type="email" id="email" name="email" placeholder="Digite aqui o seu email pessoal">
             </div>
             <div id="form-qtd-matricula">
                 <label style="margin-bottom: 5px">Quantas matrículas você tem? </label>
@@ -52,7 +59,7 @@
         </div>
     </div>
     <div class="container" id="tela-enviado">
-        <img src="check.png">
+        <img src="./assets/check.png">
         <p>Formulário enviado com sucesso!</p>
     </div>
     
@@ -60,6 +67,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
-    <script src="script.js"></script>
+    <script src="./script/script.js"></script>
 </body>
 </html>

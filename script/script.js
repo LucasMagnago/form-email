@@ -15,6 +15,7 @@ const sedu = "SEDU";
 let body = document.getElementsByTagName("body")[0];
 let nome = document.getElementById("nome");
 let cpf = document.getElementById("cpf");
+let email = document.getElementById("email");
 let data = document.getElementById("data-nascimento");
 let qtd_matricula = document.getElementById("qtd-matricula");
 let matricula1 = document.getElementById("matricula1");
@@ -57,9 +58,10 @@ qtd_matricula.addEventListener('change', function(e){
 function verificarVazio(){
     let n = nome.value;
     let c= String(cpf.value);
+    let e = String(email.value);
     let m1 = String(matricula1.value);
 
-    if(n == '' || c == '' || m1 == ''){
+    if(n == '' || c == '' || m1 == '' || e == ''){
         textoErro.innerHTML = "Os campos não podem ficar vazios";
         erro.classList.remove("erro-hidden");
         erro.classList.add("erro");
@@ -83,7 +85,7 @@ function verificarVazio(){
 }
 function verificarCPF(){
     let c = String(cpf.value);
-    console.log(c);
+
     if(c.length != 11 || c.includes(".") || c.includes(",")){
         textoErro.innerHTML = "CPF inválido";
         erro.classList.remove("erro-hidden");
@@ -153,6 +155,7 @@ function salvarBanco(){
     let c = parseInt(cpf.value);
     let m1 = parseInt(matricula1.value);
     let data_nasc = data.value;
+    let e = email.value;
 
     if(qtd_matricula.value == 2){
 
@@ -174,6 +177,7 @@ function salvarBanco(){
                     DataNascimento: data_nasc,
                     Matricula1: m1,
                     Matricula2: m2,
+                    Email: e,
                     Horario: Date.now(),
                 }).then(()=>{
                     console.log("Alterações salvas no banco");
@@ -202,6 +206,8 @@ function salvarBanco(){
                     CPF: c,
                     DataNascimento: data_nasc,
                     Matricula1: m1,
+                    Matricula2: 0,
+                    Email: e,
                     Horario: Date.now(),
                 }).then(()=>{
                     console.log("Alterações salvas no banco");

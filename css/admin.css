@@ -1,0 +1,130 @@
+:root{
+    --var--bgColorHeader: #14213d;
+    --var--bgColorNav: #013a63;
+    --var--bgColorGeral: #F2F3F4;
+    --var--bgColorCard: #FFFFFF;
+    --var--textColorCard: #0F1111;
+    --var--margem-top: 20px;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    /* box-sizing: border-box; */
+}
+html{
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--var--bgColorGeral);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+header{
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--var--bgColorHeader);
+    color: white;
+}
+/* #bg-round{
+    width: 125px;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    margin-left: 5%;
+    margin-right: 50px;
+    background-color: white;
+} */
+/* #logo{
+    width: 100px;
+    height: 100px;
+} */
+#login-page{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--var--bgColorHeader);
+}
+#formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    padding: 4rem;
+    background-color: var(--var--bgColorCard);
+}
+#form-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+#form-container > input{
+    border: none;
+    outline:none;
+    border-bottom: 1px solid rgb(194, 192, 192);
+    width: 300px;
+    height: 25px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+#botao{
+    margin-top: 2rem;
+    height: 35px;
+    background-color: var(--var--bgColorNav);
+    color: white;
+    border: none;
+    /* offset-x | offset-y | blur-radius | color */
+    box-shadow: 1px 1px 5px var(--var--bgColorHeader);
+}
+#botao:hover{
+    transform: scale(1.05);
+}
+.error-msg{
+    display: block;
+    margin: 5px 0px;
+    color: red;
+}
+.error-msg-hidden{
+    display: none;
+}
+#adm-page{
+    width: 100vw;
+    height: 100vh;
+    display: none;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+table{
+    width: 100%;
+    border-spacing: 5px;
+    border-collapse: collapse;
+}
+tr{
+    text-align: left;
+    font-size: 1.2rem;
+}
+th,td{
+    padding: 0.5rem;
+}
+td{
+    font-size: 1rem;
+}
+.tr-data{
+    background-color: var(--var--bgColorCard);
+}
